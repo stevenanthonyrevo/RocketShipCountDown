@@ -21,3 +21,6 @@ Next, please proceed to reading the **CONTRIBUTING.md** document until completio
 ### Happy Hacktoberfest!
 
 We thank you for your support, and have a wonderful time during hacktoberfest!
+
+### Credits
+Logo Design - [@Lainika](https://github.com/Lainika)
