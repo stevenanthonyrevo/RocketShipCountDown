@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+h1{
+    color: aqua;
+
+}
+#timestamp{
+    color: red;
+}
+#rocketship{
+    height: 500px;
+    width: 500px;
+}
