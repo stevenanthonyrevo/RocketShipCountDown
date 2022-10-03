@@ -25,6 +25,7 @@ For any new Coders, and fellow Developers, we cannot wait until we get the chanc
 
 ```
 go get "github.com/gin-gonic/gin" 
+go get "github.com/gorilla/websocket"
 ```
 
 ### Getting Started with Contributing  

@@ -7,5 +7,20 @@
 <h1>Rocketship Launching Count Down {{.timestamp}}</h1>
 <img src="/static/img/gopher.jpeg" alt="W3Schools.com"> 
 </center>
+<script>
+"use strict";
+
+function socketConnect() {
+let socket = new WebSocket("ws://localhost:8888/socket");
+socket.onmessage = function(event) {
+	document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`
+};
+
+setTimeout(socketConnect, 5000);
+}
+
+socketConnect();
+
+</script>
 </body>
 </html>
