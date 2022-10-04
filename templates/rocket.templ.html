@@ -12,27 +12,23 @@
 <h1>Rocketship Launching Count Down <span id="timestamp">hello world</span></h1>
 <img src="/static/img/RocketShipCountDown_logo.png" id="rocketship"> 
 <!-- <img src="/static/img/gopher.jpeg" alt="W3Schools.com"> -->
-
 </center>
 
 <script>
-   
-    var lastDate = new Date("oct 30, 2022 23:59:59").getTime();
-    var x = setInterval(function() {
-    var now = new Date().getTime();
-    var t = lastDate - now;
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-   
-    document.getElementById("timestamp").innerHTML = days + "d " 
-    + hours + "h " + minutes + "m ";
-        if (t < 0) {
-            clearInterval(x);
-            document.getElementById("timestamp").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+"use strict";
 
-    </script
+function socketConnect() {
+let socket = new WebSocket("ws://localhost:8888/socket");
+socket.onmessage = function(event) {
+	document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`
+};
+
+setTimeout(socketConnect, 5000);
+}
+
+socketConnect();
+
+</script>
+
 </body>
 </html>

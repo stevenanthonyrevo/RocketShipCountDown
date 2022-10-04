@@ -21,6 +21,13 @@ For any new Coders, and fellow Developers, we cannot wait until we get the chanc
 
 ![Stars!](https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80 "Stars")
 
+### Installing 
+
+```
+go get "github.com/gin-gonic/gin" 
+go get "github.com/gorilla/websocket"
+```
+
 ### Getting Started with Contributing  
 
 If you see an issue you would like to take-on, (@) **tag** one of the maintainers of the project within the issue. 
