@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rocket-ship-countdown
+spec:
+  selector:
+    app.kubernetes.io/name: rocket-ship-countdown
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8888
