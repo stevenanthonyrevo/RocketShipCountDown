@@ -5,20 +5,27 @@
 <body>
 <center>
 <h1>Rocketship Launching Count Down {{.timestamp}}</h1>
+<!-- Display the live countdown value -->
 <img src="/static/img/gopher.jpeg" alt="W3Schools.com"> 
 </center>
 <script>
 "use strict";
 
+// Function to establish a WebSocket connection
 function socketConnect() {
-let socket = new WebSocket("ws://localhost:8888/socket");
-socket.onmessage = function(event) {
-	document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`
-};
+    // Create a WebSocket connection to the server
+    let socket = new WebSocket("ws://localhost:8888/socket");
+    // Handle incoming messages from the server
+    socket.onmessage = function(event) {
+        // Update the countdown value on the HTML page
+        document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`;
+    };
 
-setTimeout(socketConnect, 5000);
+    // Reconnect to the WebSocket every 5 seconds
+    setTimeout(socketConnect, 5000);
 }
 
+// Initialize the WebSocket connection
 socketConnect();
 
 </script>
