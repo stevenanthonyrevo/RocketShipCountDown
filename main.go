@@ -37,6 +37,7 @@ func WebSocketConnection() {
 				log.Println("read:", err)
 				return
 			}
+			// Convert the message to a string and send it to the 'messageOut' channel
 			messageOut <- string(message)
 		}
 	}()
