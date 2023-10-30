@@ -40,9 +40,6 @@ func WebSocketConnection() {
 			messageOut <- string(message)
 		}
 	}()
-	x := <-messageOut
-	fmt.Println(x)
-	live = string(x)
 }
 
 // RocketCountDownTimer function to start a countdown timer
