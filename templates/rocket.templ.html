@@ -14,7 +14,9 @@
 // Function to establish a WebSocket connection
 function socketConnect() {
     // Create a WebSocket connection to the server
-    let socket = new WebSocket("ws://localhost:8888/socket");
+    const url = new URL('./socket', location.href);
+    url.protocol = url.protocol.replace('http', 'ws');
+    let socket = new WebSocket(url);
     // Handle incoming messages from the server
     socket.onmessage = function(event) {
         // Update the countdown value on the HTML page
