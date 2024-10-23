@@ -1,12 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Rocketship Count Down</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+
+<body class="bg-[url('/static/img/gopher-2024.jpeg')] bg-cover bg-no-repeat bg-center h-screen w-screen">
 <center>
 <h1>Rocketship Launching Count Down {{.timestamp}}</h1>
 <!-- Display the live countdown value -->
-<img src="/static/img/gopher.jpeg" alt="W3Schools.com"> 
+<div class="sm:w-full md:w-full lg:w-full sm:p-5 md:p-10 lg:p-40">
+    <div class="lg:flex md:flex sm:flex mb-4">
+        <div class="sm:w-full md:w-full lg:w-1/4 bg-[#1e1e1f] rounded-xl mx-1 p-8">
+            <h2 id="day" class="text-white text-8xl">13</h2>
+            <h4 class="uppercase text-white text-base text-5xl">Day</h4>
+        </div>
+        <div class="sm:w-full md:w-full lg:w-1/4 bg-[#1e1e1f] rounded-xl mx-1 p-8">
+            <h2 id="hours" class="text-white text-8xl">22</h2>
+            <h4 class="uppercase text-white text-base text-5xl">Hours</h4>
+        </div>
+        <div class="sm:w-full md:w-full lg:w-1/4 bg-[#1e1e1f] rounded-xl mx-1 p-8">
+            <h2 id="minutes" class="text-white text-8xl">56</h2>
+            <h4 class="uppercase text-white text-base text-5xl">Minutes</h4>
+        </div>
+        <div class="sm:w-full md:w-full lg:w-1/4 bg-[#1e1e1f] rounded-xl mx-1 p-8">
+            <h2 id="seconds" class="text-white text-8xl">05</h2>
+            <h4 class="uppercase text-white text-base text-5xl">Seconds</h4>
+        </div>
+    </div> 
+</div> 
 </center>
 <script>
 "use strict";
@@ -14,11 +39,28 @@
 // Function to establish a WebSocket connection
 function socketConnect() {
     // Create a WebSocket connection to the server
-    let socket = new WebSocket("ws://localhost:8888/socket");
+    let socket = new WebSocket("ws://0.0.0.0:8888/socket");
     // Handle incoming messages from the server
     socket.onmessage = function(event) {
         // Update the countdown value on the HTML page
+        var timestamp = Date.parse(event.data);
+        const date = new Date(timestamp);
+
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1; // Months are 0-indexed, so add 1
+        const day = date.getDate();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const milliseconds = date.getMilliseconds();
+
+        console.log(year, month, day, hours, minutes, seconds, milliseconds);
+        
         document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`;
+        document.getElementById("day").innerHTML = `${day}`;
+        document.getElementById("hours").innerHTML = `${hours}`;
+        document.getElementById("minutes").innerHTML = `${minutes}`;
+        document.getElementById("seconds").innerHTML = `${seconds}`;
     };
 
     // Reconnect to the WebSocket every 5 seconds
