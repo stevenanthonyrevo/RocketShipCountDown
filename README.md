@@ -44,12 +44,6 @@ This will help ensure, the issue hasn't been taken by another contributor and is
 
 Next, please proceed to reading the **CONTRIBUTING.md** document until completion. It's that simple, feel free to Submit a Pull Request when your code is ready for merge or review!
 
-### Contributors 
-
-<a href="https://github.com/stevenanthonyrevo/RocketShipCountDown/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=stevenanthonyrevo/RocketShipCountDown" />
-</a>
-
 ### Happy Hacktoberfest! 👻
 
 We thank you for your support, and have a wonderful time during hacktoberfest!
