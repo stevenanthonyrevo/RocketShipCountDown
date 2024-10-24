@@ -17,7 +17,15 @@
  
 ### 👻 Happy Hacktoberfest, Contributors!
 
-For any new Coders, and fellow Developers, we cannot wait until we get the chance to see your contributions. Make sure to follow the contributing guide below and  submit your PR's. 
+For any new Coders, and fellow Developers, we cannot wait until we get the chance to see your contributions. Make sure to follow the contributing guide below and submit your PR's. 
+
+<h1 align="center">Contributors</h1>
+
+<a href="https://github.com/stevenanthonyrevo/RocketShipCountDown/graphs/contributors">
+  <p align="center" width="100%">
+  <img src="https://contrib.rocks/image?repo=stevenanthonyrevo/RocketShipCountDown" />
+  </p>
+</a>
 
 ![Stars!](https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80 "Stars")
 
@@ -35,6 +43,12 @@ If you see an issue you would like to take-on, (@) **tag** one of the maintainer
 This will help ensure, the issue hasn't been taken by another contributor and is available for you to begin.  
 
 Next, please proceed to reading the **CONTRIBUTING.md** document until completion. It's that simple, feel free to Submit a Pull Request when your code is ready for merge or review!
+
+### Contributors 
+
+<a href="https://github.com/stevenanthonyrevo/RocketShipCountDown/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=stevenanthonyrevo/RocketShipCountDown" />
+</a>
 
 ### Happy Hacktoberfest! 👻
 
