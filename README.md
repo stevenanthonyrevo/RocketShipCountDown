@@ -17,6 +17,8 @@
  
 ### 👻 Happy Hacktoberfest, Contributors!
 
+![Stars!](https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80 "Stars")
+
 For any new Coders, and fellow Developers, we cannot wait until we get the chance to see your contributions. Make sure to follow the contributing guide below and submit your PR's. 
 
 <h1 align="center">Contributors</h1>
@@ -26,8 +28,6 @@ For any new Coders, and fellow Developers, we cannot wait until we get the chanc
   <img src="https://contrib.rocks/image?repo=stevenanthonyrevo/RocketShipCountDown" />
   </p>
 </a>
-
-![Stars!](https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80 "Stars")
 
 ### Installing 
 
