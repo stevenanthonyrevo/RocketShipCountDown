@@ -1,33 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React 18 Rocketship Countdown</title>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    img {
+      max-width: 300px;
+    }
+  </style>
+
+  <!-- Babel and React via CDN -->
+  <script src="https://unpkg.com/@babel/standalone@latest/babel.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 </head>
 <body>
-<center>
-<h1>Rocketship Launching Count Down {{.timestamp}}</h1>
-<!-- Display the live countdown value -->
-<img src="/static/img/gopher.jpeg" alt="W3Schools.com"> 
-</center>
-<script>
-"use strict";
+  <div id="root"></div>
 
-// Function to establish a WebSocket connection
-function socketConnect() {
-    // Create a WebSocket connection to the server
-    let socket = new WebSocket("ws://localhost:8888/socket");
-    // Handle incoming messages from the server
-    socket.onmessage = function(event) {
-        // Update the countdown value on the HTML page
-        document.getElementsByTagName("h1")[0].innerHTML = `Rocketship Launching Count Down ${event.data}`;
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const App = () => {
+      const [countdown, setCountdown] = useState("Connecting...");
+
+      useEffect(() => {
+        const connectWebSocket = () => {
+          const socket = new WebSocket("ws://localhost:8888/socket");
+
+          socket.onmessage = (event) => {
+            setCountdown(`Rocketship Launching Countdown ${event.data}`);
+          };
+
+          socket.onerror = () => {
+            console.error("WebSocket error, reconnecting...");
+            setTimeout(connectWebSocket, 5000); // Retry every 5 seconds
+          };
+        };
+
+        connectWebSocket();
+      }, []);
+
+      return (
+        <div>
+          <h1>{countdown}</h1>
+          <img src="/static/img/gopher.jpeg" alt="Rocketship" />
+        </div>
+      );
     };
 
-    // Reconnect to the WebSocket every 5 seconds
-    setTimeout(socketConnect, 5000);
-}
-
-// Initialize the WebSocket connection
-socketConnect();
-
-</script>
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
 </body>
 </html>
