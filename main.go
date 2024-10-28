@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net"
 	"time"
 	"os"
 	"context"
@@ -19,10 +20,26 @@ var upgrader = websocket.Upgrader{} // Upgrader for WebSocket connections
 var countdown string                // String for countdown timer
 var live string                    // String for live countdown
 var messageOut = make(chan string)  // Channel for outgoing WebSocket messages
+var localIP string
 
 // WebSocketConnection function to establish a WebSocket connection
 func WebSocketConnection() {
-	uri := url.URL{Scheme: "ws", Host: "localhost:8888", Path: "/socket"}
+	// dial auto-detection ipv4
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		fmt.Println("Failed to get interface addresses:", err)
+	}
+	for _, addr := range addrs {
+		if ipnet, ok := addr.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+			localIP = ipnet.IP.String()
+			break
+		}
+	}
+	if localIP == "" {
+		localIP = "localhost" // Fallback to localhost
+	}
+	log.Println("Local IPV4 address:", localIP)
+	uri := url.URL{Scheme: "ws", Host: string(localIP) + ":8888", Path: "/socket"}
 	c, resp, err := websocket.DefaultDialer.Dial(uri.String(), nil)
 	if err != nil {
 		log.Printf("handshake failed %d", resp.StatusCode)
